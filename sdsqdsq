@@ -7366,7 +7366,7 @@
                 Options.Enabled = bool
             end, Flag = Cfg.Name .. "_GLOBAL_ENABLED"})
 
-            PlayersToggle:Colorpicker({Name = "ESP Color", Color = rgb(179, 208, 217), Alpha = 0, Callback = function(Value)
+            PlayersToggle:Colorpicker({Name = "ESP Color", Default = rgb(179, 208, 217), Alpha = 0, Callback = function(Value)
                 -- Update all ESP colors except healthbar
                 Options["Name_Text_Color"] = { Color = Value }
                 Options["Distance_Text_Color"] = { Color = Value }
