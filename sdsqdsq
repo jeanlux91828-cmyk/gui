@@ -6409,16 +6409,11 @@
                         Elements.Options = {} 
 
                         local Section = setmetatable(Config, Library)
-                        
-                        local TextToggle = Section:Toggle({Name = Config.Prefix .. "_Text", Callback = function(bool)
-                            Options[Config.Prefix .. "_Text"] = bool
-                        end, Flag = Config.Flag .. "_TEXT_ENABLED"})
-                        
-                        local Label = TextToggle:Label({Name = "Color"})
+                        local Label = Section:Label({Name = "Color"})
                         Elements.Options.Text = Label:Colorpicker({Callback = function(value)
                             Elements.Name.TextColor3 = Flags[Config.Flag .. "_COLOR1"].Color
                             Options[Config.Prefix .. "_Text_Color"] = Flags[Config.Flag .. "_COLOR1"]
-                        end, Flag = Config.Flag .. "_COLOR1", Color = rgb(179, 208, 217)})
+                        end, Flag = Config.Flag .. "_COLOR1", Color = props.Color1 or rgb(255, 255, 255)})
 
                         Elements.Options.Font = Section:Dropdown({Name = "Font", Options = FontIndexes, Default = "ProggyClean", Callback = function(option)
                             Options[Config.Prefix .. "_Text_Font"] = option
@@ -6967,15 +6962,6 @@
                         Elements.Options = {} 
 
                         local Section = setmetatable(Config, Library)
-                        
-                        Elements.Options.BoxToggle = Section:Toggle({Name = "Boxes", Callback = function(bool)
-                            Options["Boxes"] = bool
-                        end, Flag = Config.Flag .. "_BOXES_ENABLED"})
-                        
-                        Elements.Options.BoxToggle:Colorpicker({Name = "Box Color", Color = rgb(179, 208, 217), Transparency = 0, Callback = function(color, alpha)
-                            Options["Box Gradient 1"] = Flags[Config.Flag .. "_BOX_COLOR"]
-                        end, Flag = Config.Flag .. "_BOX_COLOR"})
-                        
                         Elements.Options.Type = Section:Dropdown({
                             Name = "Type",
                             Options = { "Corner", "Box"},
@@ -7398,7 +7384,7 @@
                     print("I am real", bool)
                 end, Flag = Cfg.Name .. "_CHAMS"})
 
-                Toggle:Colorpicker({Name = "Fill", Color = rgb(179, 208, 217), Transparency = 1, Callback = function(color, alpha)
+                Toggle:Colorpicker({Name = "Fill", Color = rgb(255, 255, 255), Transparency = 1, Callback = function(color, alpha)
                     Options["Chams Fill"] = Flags[Cfg.Name .. "_FILL_CHAMS"]
                 end, Flag = Cfg.Name .. "_FILL_CHAMS"})
 
