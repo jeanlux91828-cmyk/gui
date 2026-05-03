@@ -5288,18 +5288,18 @@
 
             -- Chams   
             ["ChamsEnabled"] = false; 
-            ["Chams Fill"] = { Color = rgb(0, 255, 255), Transparency = 0.9 };
-            ["Chams Outline"] = { Color = rgb(255, 0, 0), Transparency = 0.4 };
+            ["Chams Fill"] = { Color = rgb(179, 208, 217), Transparency = 0.9 };
+            ["Chams Outline"] = { Color = rgb(179, 208, 217), Transparency = 0.4 };
 
             -- Boxes
             ["Boxes"] = false;
             ["BoxType"] = "Normal";
-            ["Box Gradient 1"] = { Color = rgb(0, 255, 255), Transparency = 0.9 };
-            ["Box Gradient 2"] = { Color = rgb(255, 0, 0), Transparency = 0.4 };
+            ["Box Gradient 1"] = { Color = rgb(179, 208, 217), Transparency = 0.9 };
+            ["Box Gradient 2"] = { Color = rgb(179, 208, 217), Transparency = 0.4 };
             ["Box Gradient Rotation"] = 90;
             ["Box Fill"] = false; 
-            ["Box Fill 1"] = { Color = rgb(0, 255, 255), Transparency = 0.9 };
-            ["Box Fill 2"] = { Color = rgb(0, 255, 255), Transparency = 0.9 };
+            ["Box Fill 1"] = { Color = rgb(179, 208, 217), Transparency = 0.9 };
+            ["Box Fill 2"] = { Color = rgb(179, 208, 217), Transparency = 0.9 };
             ["Box Fill Rotation"] = 0;
 
             ["Healthbar"] = false; 
@@ -5319,13 +5319,13 @@
 
             -- Text Based Elements
             ["Name_Text"] = false; 
-            ["Name_Text_Color"] = { Color = rgb(255, 255, 255) };
+            ["Name_Text_Color"] = { Color = rgb(179, 208, 217) };
             ["Name_Text_Position"] = "Top";
             ["Name_Text_Font"] = "ProggyClean";
             ["Name_Text_Size"] = 12;
             
             ["Distance_Text"] = false; 
-            ["Distance_Text_Color"] = { Color = rgb(255, 255, 255) };
+            ["Distance_Text_Color"] = { Color = rgb(179, 208, 217) };
             ["Distance_Text_Position"] = "Bottom";
             ["Distance_Text_Font"] = "ProggyClean";
             ["Distance_Text_Size"] = 12;
