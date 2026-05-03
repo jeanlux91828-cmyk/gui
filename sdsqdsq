@@ -7396,11 +7396,11 @@
                     print("I am real", bool)
                 end, Flag = Cfg.Name .. "_CHAMS"})
 
-                Toggle:Colorpicker({Name = "Fill", Color = rgb(255, 255, 255), Transparency = 1, Callback = function(color, alpha)
+                Toggle:Colorpicker({Name = "Fill", Color = rgb(179, 208, 217), Transparency = 1, Callback = function(color, alpha)
                     Options["Chams Fill"] = Flags[Cfg.Name .. "_FILL_CHAMS"]
                 end, Flag = Cfg.Name .. "_FILL_CHAMS"})
 
-                Toggle:Colorpicker({Name = "Outline", Color = rgb(255, 255, 255), Transparency = 0.5, Callback = function(color, alpha)
+                Toggle:Colorpicker({Name = "Outline", Color = rgb(179, 208, 217), Transparency = 0.5, Callback = function(color, alpha)
                     Options["Chams Outline"] = Flags[Cfg.Name .. "_OUTLINE_CHAMS"]
                 end, Flag = Cfg.Name .. "_OUTLINE_CHAMS"})
             end
