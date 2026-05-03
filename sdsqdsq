@@ -1899,7 +1899,7 @@
                         Parent = Items.Background;
                         TextColor3 = themes.preset.accent;
                         TextStrokeColor3 = rgb(255, 255, 255);
-                        Text = 'octohook.xyz <font color = "rgb(235, 235, 235)">@placeholder / UID @ / Developer / 00/00/0000 / 00:00:00 / 0fps / Oms</font>';
+                        Text = 'octohook.xyz <font color = "rgb(235, 235, 235)">@placeholder / UID @ / Neptune User / 00/00/0000 / 00:00:00 / 0fps / Oms</font>';
                         Name = "\0";
                         AutomaticSize = Enum.AutomaticSize.XY;
                         BorderSizePixel = 0;
@@ -4928,15 +4928,15 @@
                 Section:Slider({Name = "Dragging Speed", Min = 0, Max = 1, Decimal = .01, Default = .05, Callback = function(num)
                     Library.DraggingSpeed = num
                 end})
-                Section:Label({Name = "Menu Bind"}):Keybind({Name = "Menu Bind", Key = Enum.KeyCode.E, Callback = function(bool) 
+                Section:Label({Name = "Menu Bind"}):Keybind({Name = "Menu Bind", Key = Enum.KeyCode.RightShift, Callback = function(bool) 
                     print(bool)
                     Window.SetVisible(bool) 
                 end})
                 Window.Tweening = false
-                Section:Toggle({Name = "Toggle Watermark", Callback = function(bool)
+                Section:Toggle({Name = "Toggle Watermark", Default = true, Callback = function(bool)
                     Window.SetWatermarkVisible(bool)
                 end})
-                Section:Toggle({Name = "Toggle Keybind List", Callback = function(bool)
+                Section:Toggle({Name = "Toggle Keybind List", Default = true, Callback = function(bool)
                     Library.KeybindList.Items.Holder.Visible = bool 
                     Library.KeybindList.Items.List.Visible = bool 
                 end})
