@@ -7362,9 +7362,21 @@
                 end 
             -- 
 
-            self.Section:Toggle({Name = Cfg.Name, Callback = function(bool)
+            local PlayersToggle = self.Section:Toggle({Name = Cfg.Name, Callback = function(bool)
                 Options.Enabled = bool
             end, Flag = Cfg.Name .. "_GLOBAL_ENABLED"})
+
+            PlayersToggle:Colorpicker({Name = "ESP Color", Default = rgb(179, 208, 217), Alpha = 0, Callback = function(Value)
+                -- Update all ESP colors except healthbar
+                Options["Name_Text_Color"] = { Color = Value }
+                Options["Distance_Text_Color"] = { Color = Value }
+                Options["Box Gradient 1"] = { Color = Value, Transparency = MiscOptions["Box Gradient 1"].Transparency }
+                Options["Box Gradient 2"] = { Color = Value, Transparency = MiscOptions["Box Gradient 2"].Transparency }
+                Options["Box Fill 1"] = { Color = Value, Transparency = MiscOptions["Box Fill 1"].Transparency }
+                Options["Box Fill 2"] = { Color = Value, Transparency = MiscOptions["Box Fill 2"].Transparency }
+                Options["Chams Fill"] = { Color = Value, Transparency = MiscOptions["Chams Fill"].Transparency }
+                Options["Chams Outline"] = { Color = Value, Transparency = MiscOptions["Chams Outline"].Transparency }
+            end, Flag = Cfg.Name .. "_ESP_COLOR"})
 
             self.Section:Slider({
                 Name = "Max Render Distance", 
