@@ -7390,6 +7390,32 @@
                 end 
             })
 
+
+    local SkeletonToggle = self.Section:Toggle({
+        Name = "Skeleton ESP",
+        Flag = "Toggle_Skeleton",
+        Default = false,
+        Callback = function(Value)
+            SkeletonEnabled = Value
+            if Value then
+                for _, plr in pairs(Players:GetPlayers()) do
+                    if plr ~= Player then DrawSkeleton(plr) end
+                end
+            else
+                for plr in pairs(AllSkeletons) do RemoveSkeleton(plr) end
+            end
+        end
+    })
+
+    SkeletonToggle:Colorpicker({
+        Name = "Skeleton Color",
+        Flag = "Color_Skeleton",
+        Default = Color3.fromRGB(255, 0, 0),
+        Alpha = 0,
+        Callback = function(Value) UpdateSkeletonColor(Value) end
+    })
+end
+
             if Cfg.Chams then 
                 local Toggle = self.Section:Toggle({Name = Cfg.Name .. " Chams", Callback = function(bool)
                     Options["ChamsEnabled"] = bool
