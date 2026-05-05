@@ -8062,6 +8062,26 @@
                         Parent = Items.Distance;
                         LineJoinMode = Enum.LineJoinMode.Miter
                     });
+
+                    Items.Item = Esp:Create( "TextLabel", {
+                        FontFace = Fonts.ProggyClean;
+                        TextColor3 = rgb(255, 255, 255);
+                        BorderColor3 = rgb(0, 0, 0);
+                        Parent = Esp.Cache;
+                        Name = "Left";
+                        Text = "";
+                        BackgroundTransparency = 1;
+                        Size = dim2(1, 0, 0, 0);
+                        BorderSizePixel = 0;
+                        AutomaticSize = Enum.AutomaticSize.XY;
+                        TextSize = 9;
+                        BackgroundColor3 = rgb(255, 255, 255)
+                    });
+
+                    Esp:Create( "UIStroke", {
+                        Parent = Items.Item;
+                        LineJoinMode = Enum.LineJoinMode.Miter
+                    });
                 -- 
             end       
 
@@ -8088,18 +8108,20 @@
             end   
 
             Data.ToolAdded = function(item)
-                -- if not item:FindFirstChild("ItemRoot") then 
-                --     return 
-                -- end 
+                local Character = Data.Info.Character
+                if not Character then return end
 
-                -- local exists = Data.Info.Character:FindFirstChild(item.Name) 
-                -- Items["weapon"].Text = "[" .. item.Name .. "]"
+                local toolName = ""
+                for _, child in pairs(Character:GetChildren()) do
+                    if child:IsA("Tool") then
+                        toolName = child.Name
+                        break
+                    end
+                end
 
-                -- pcall(function()
-                --     Items["weapon"].Parent = exists and Items["Holder"] or Esp.Cache
-                -- end)
-
-                -- Refresh
+                if Items.Item then
+                    Items.Item.Text = toolName ~= "" and "[" .. toolName .. "]" or ""
+                end
             end
 
             Data.HealthChanged = function(Value)
@@ -8375,6 +8397,24 @@
                 if DistanceLabel.Text ~= Text then 
                     DistanceLabel.Text = Text
                 end 
+
+                -- Item ESP: show equipped tool
+                if Items.Item then
+                    local Character = Data.Info.Character
+                    local toolName = ""
+                    if Character then
+                        for _, child in pairs(Character:GetChildren()) do
+                            if child:IsA("Tool") then
+                                toolName = child.Name
+                                break
+                            end
+                        end
+                    end
+                    local itemText = toolName ~= "" and "[" .. toolName .. "]" or ""
+                    if Items.Item.Text ~= itemText then
+                        Items.Item.Text = itemText
+                    end
+                end
                 
                 -- if Options["Box Fill"] and Options["Box Spin"] then 
                 --     Items["Holder_gradient"].Rotation += Options["Box Spin Speed"] / 100
@@ -8593,6 +8633,9 @@
                     elseif string.match(key, "Distance") then 
                         Text = Items.Distance
                         Match = "Distance"
+                    elseif string.match(key, "Item") then 
+                        Text = Items.Item
+                        Match = "Item"
                     end 
 
                     if Text then 
