@@ -8316,6 +8316,14 @@
                 if not (Character or Humanoid) then 
                     continue 
                 end 
+
+                if Humanoid.Health <= 0 then
+                    local Items = Data and Data.Items
+                    if Items and Items["Holder"] then
+                        Items["Holder"].Visible = false
+                    end
+                    continue
+                end 
                 
                 local Items = Data and Data.Items 
 
